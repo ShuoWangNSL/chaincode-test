@@ -24,13 +24,13 @@ func (t *DoNothing) Init(stub shim.ChaincodeStubInterface, function string, args
 func (t *DoNothing) Invoke(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
 
 	if function == "donothing" {
-    temp := 1
-    for {
-      temp = temp + 1
-      temp = temp - 1
-      //time.Sleep(1 * time.Millisecond)
-    }
-		return nil, nil
+          temp := 1
+          for {
+            temp = temp + 1
+            temp = temp - 1
+            time.Sleep(1 * time.Nanosecond)
+          }
+	  return nil, nil
 	}
 	return nil, errors.New("Received unknown function invocation")
 }
